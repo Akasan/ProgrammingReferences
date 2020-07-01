@@ -3,7 +3,7 @@
 - Opencvで読み込まれる画像はNumPyのArrayとして扱うことができる
 -----
 ## 画像の表示
-```python:
+```python
 import cv2
 
 cv2.namedWindow(window_name, cv2.WINDOW_NORMAL)         # ウィンドウサイズの変換が手動で行えるようになる
@@ -20,7 +20,7 @@ cv2.destroyAllWindows()                        # すべてのwindowを削除
 ---
 ## 色の変換
 - opencvの場合、色の取り扱いはB、G、Rの順番で行われる
-```python:
+```python
 import cv2
 
 # BGR -> GRAY
@@ -31,7 +31,7 @@ bgr_img = cv2.cvtColor(gray_img, cv2.COLOR_GRAY2BGR)
 ```
 ---
 ## 任意のフィルタの作成及び画像への適用
-```python:
+```python
 import cv2
 import numpy as np
 
@@ -49,7 +49,7 @@ def apply_filter(img, kernel):
 ## 画像の差分の計算方法
 - 基本的にはuint8で扱われるため、そのまま引き算すると0以下の値が他の値に設定されるため、float32等に型変換する必要がある
 
-```python:
+```python
 import cv2
 import numpy as np
 
@@ -62,7 +62,7 @@ uint8_diff_img = float_diff_img.astype(np.uint8)
 ```
 ---
 ## 各図形の表示
-```python:
+```python
 import cv2
 
 # 線分
@@ -77,7 +77,7 @@ cv2.circle(img, (x_o, x_y))
 - 詳しくは[輪郭の階層情報]([輪郭の階層情報 — OpenCV-Python Tutorials 1 documentation](http://labs.eecs.tottori-u.ac.jp/sd/Member/oyamada/OpenCV/html/py_tutorials/py_imgproc/py_contours/py_contours_hierarchy/py_contours_hierarchy.html) "輪郭抽出")を参照
 
 ### contourの取得
-```python:
+```python
 import cv2
 
 def get_contours(img):
@@ -96,7 +96,7 @@ def get_contours(img):
 ```
 
 ### 最大図形の抽出
-```python:
+```python
 import cv2
 
 # 親となる図形のみを抽出
@@ -139,7 +139,7 @@ max_index = find_max_area(parent_contours)
 ---
 ## マウスクリックによる操作
 - このクラスを利用した場合、一瞬クリックしただけれも複数回分のクリックとして認識されるため、前回クリックした場所の座標を覚えておくことで、それと比較するなどの対応が必要である
-```python:
+```python
 class mouseParam:
     def __init__(self, input_img_name):
         #マウス入力用のパラメータ
@@ -197,7 +197,7 @@ class mouseParam:
 ---
 ## 特定の色の部分のみを抽出
 - BGRから[HSV](https://ja.wikipedia.org/wiki/HSV%E8%89%B2%E7%A9%BA%E9%96%93)へ変換した場合
-```python:
+```python
 import cv2
 import numpy as np
 
@@ -211,7 +211,7 @@ img_color = cv2.bitwise_and(img, img, mask=img_mask)
 
 ---
 ## テキストの表示
-```python:
+```python
 import cv2
 
 cv2.putText(img, text, (x, y), font, size, (b, g, r), width)
@@ -220,7 +220,7 @@ cv2.putText(img, text, (x, y), font, size, (b, g, r), width)
 --- 
 ## 特徴点取得
 - ORB特徴量の場合
-```python:
+```python
 import cv2
 
 orb_extractor = cv2.ORB_create()
